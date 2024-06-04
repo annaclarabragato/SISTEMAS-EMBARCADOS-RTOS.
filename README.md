@@ -8,13 +8,14 @@
 
 > pcb: ☆
 
-![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/45e1b622-8e81-4fa1-8614-67ca94ee3c49)
+![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/ca90aab7-526e-405f-b0ad-93bf2230213d)
 
 > 3D: ☆
 
 ## parte traseira da placa:
-![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/1c48ccbd-9783-43f0-b62c-35bc329e5a8c)
+![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/4e3058f7-13ae-4c6a-a883-38be048ce9bd)
 
 ## parte frontal:
-![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/c04ff4e0-14b1-4550-990c-d3fe691e6f83)
+![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/208b6c97-1d15-434c-9f87-c89dbf43b888)
+
 
