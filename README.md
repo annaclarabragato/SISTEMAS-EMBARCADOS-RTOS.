@@ -23,6 +23,8 @@
 
 > 1º como o MQTT funciona: ele parte de um broker, no qual é como um tópico em que tudo estará sendo descrito. junto dele, há o pub e o sub. o sub, não envia nada, apenas recebe, o pub é o contrário disto. como será visto na atividade em seguida, demonstrando como o pub envia "ControleRelay: ON", passa pelo broker e retorna então para o sub.
 
+> 2º em seguida, o código utilizado na atividade:
+
 ``` sh #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -99,4 +101,20 @@ void loop() {
     reconnect();
   }
   client.loop();
-} sh ```
+} ``` sh
+
+> 3º os prints referentes a: broker:
+
+![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/f19dc58e-313c-4c66-8402-50a513595980)
+
+> referente ao sub:
+
+![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/515af302-b3ec-470f-9a9d-9312ca7f7b86)
+
+> referente ao pub:
+
+![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/77a996a4-e9e2-4899-8722-c7bd38b853ab)
+
+> referente ao led ligando e desligando, na aba terminal do vscode:
+
+![image](https://github.com/annaclarabragato/SISTEMAS-EMBARCADOS-RTOS./assets/125417531/7eb2333c-c26b-4b1e-9fae-acd3de492080)
