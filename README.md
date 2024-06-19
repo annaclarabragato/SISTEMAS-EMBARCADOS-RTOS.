@@ -25,17 +25,21 @@
 
 > 2º em seguida, o código utilizado na atividade:
 
-``` sh #include <Arduino.h>
+```sh
+#include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+> inclui as bibliotecas necessárias
 
 const char* ssid = "AndroidAP";
 const char* password = "nssa9988";
 const char* mqtt_server = "192.168.43.58";
+> define as credenciais da rede Wi-Fi (ssid e password) à qual o ESP8266 se conectará, e o endereço do servidor MQTT local (mqtt_server)
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 const int Relay = D1;
+> cria um cliente WiFi (espClient) e um cliente MQTT (client) usando o objeto espClient. Define o pino D1 como saída para controlar o relé
 
 void setup_wifi() {
   delay(10);
@@ -52,6 +56,7 @@ void setup_wifi() {
   Serial.println("IP address");
   Serial.println(WiFi.localIP());
 }
+> função para conectar o ESP8266 à rede Wi-Fi. Ele tenta conectar e espera até a conexão ser estabelecida, exibindo o progresso no monitor serial
 
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
@@ -72,6 +77,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
     }
   }
+> callback que é chamada quando uma mensagem MQTT é recebida. Ele interpreta o tópico e a mensagem recebida, e controla o relé (Relay) com base no conteúdo da mensagem
 
 void setup() {
   pinMode(Relay, OUTPUT);
@@ -80,6 +86,7 @@ void setup() {
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
 }
+> configurações iniciais no setup(): define o pino do relé como saída, inicia a comunicação serial e a conexão Wi-Fi, configura o servidor MQTT e define a função de callback para mensagens recebidas
 
 void reconnect() {
   while (!client.connected()) {
@@ -95,13 +102,16 @@ void reconnect() {
     }
   }
 }
+> função para reconectar ao servidor MQTT caso a conexão seja perdida. Tenta conectar-se e assina o tópico "ControleRelay" após a conexão ser bem-sucedida
 
 void loop() {
   if (!client.connected()) {
     reconnect();
   }
   client.loop();
-} ``` sh
+}
+> função loop() principal que verifica se o cliente MQTT está conectado. Se não estiver, chama reconnect() para tentar se reconectar. o método client.loop() é usado para manter a comunicação com o servidor MQTT
+```
 
 > 3º os prints referentes a: broker:
 
