@@ -23,6 +23,55 @@
 
 > 1º como o MQTT funciona: ele parte de um broker, no qual é como um tópico em que tudo estará sendo descrito. junto dele, há o pub e o sub. o sub, não envia nada, apenas recebe, o pub é o contrário disto. como será visto na atividade em seguida, demonstrando como o pub envia "ControleRelay: ON", passa pelo broker e retorna então para o sub.
 
+> 1. Broker
+O broker é o servidor central que gerencia a troca de mensagens entre os clientes. Ele recebe mensagens publicadas por clientes e as encaminha para outros clientes que estão inscritos nos tópicos correspondentes.
+
+Funções do broker:
+Receber mensagens dos publishers.
+Filtrar mensagens por tópico.
+Enviar mensagens para os subscribers apropriados.
+Gerenciar conexões de clientes.
+Implementar políticas de segurança e autenticação.
+
+> 2. Clients (Clientes)
+Os clientes são dispositivos ou aplicativos que se comunicam entre si através do broker. Cada cliente pode ser um publisher, um subscriber ou ambos.
+
+Publisher:
+Envia mensagens para um ou mais tópicos no broker.
+Subscriber:
+Recebe mensagens de um ou mais tópicos aos quais está inscrito.
+
+> 3. Messages (Mensagens)
+As mensagens são os dados trocados entre os clientes. Cada mensagem tem um tópico associado, que é usado para determinar quais subscribers devem receber a mensagem.
+
+Componentes de uma mensagem:
+Tópico: Identifica a categoria da mensagem.
+Payload (Carga útil): O conteúdo da mensagem.
+Quality of Service (QoS): Nível de garantia de entrega da mensagem.
+Retain Flag: Indica se a mensagem deve ser retida pelo broker.
+
+> 4. Topics (Tópicos)
+Tópicos são strings hierárquicas que servem como endereços para mensagens. Os publishers enviam mensagens para tópicos específicos, e os subscribers se inscrevem nesses tópicos para receber mensagens.
+
+Hierarquia de tópicos: Por exemplo, casa/sala/temperatura.
+Wildcards: + (corresponde a um único nível) e # (corresponde a múltiplos níveis).
+
+> 5. Sessions (Sessões)
+As sessões são usadas para manter o estado de conexão entre um cliente e o broker, permitindo reconexões e a entrega de mensagens pendentes.
+
+Sessões persistentes: Mantêm o estado e mensagens não entregues mesmo após a desconexão.
+Sessões não persistentes: Não mantêm o estado após a desconexão.
+
+> 6. Quality of Service (QoS)
+O QoS define o nível de garantia de entrega das mensagens.
+
+QoS 0 - At most once: Mensagens são entregues no máximo uma vez, sem confirmação.
+QoS 1 - At least once: Mensagens são entregues pelo menos uma vez, com confirmação.
+QoS 2 - Exactly once: Mensagens são entregues exatamente uma vez, com um protocolo de handshake mais complexo.
+
+> 7. Last Will and Testament (LWT)
+O LWT é uma mensagem que um cliente pode definir para ser enviada pelo broker em caso de desconexão inesperada do cliente. Isso é útil para notificar outros clientes sobre a falha de um dispositivo. 
+
 > 2º em seguida, o código utilizado na atividade:
 
 ```sh
